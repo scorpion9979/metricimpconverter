@@ -4,6 +4,7 @@ var express     = require('express');
 var bodyParser  = require('body-parser');
 var expect      = require('chai').expect;
 var cors        = require('cors');
+var helmet = require('helmet');
 
 var apiRoutes         = require('./routes/api.js');
 var fccTestingRoutes  = require('./routes/fcctesting.js');
@@ -17,6 +18,12 @@ app.use(cors({origin: '*'})); // for FCC testing purposes only
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// prevent the client from trying to guess(sniff) the MIME type
+app.use(helmet.noSniff());
+
+// prevent cross-site scripting (XSS) attacks
+app.use(helmet.xssFilter());
 
 // index page (static HTML)
 app.route('/')
