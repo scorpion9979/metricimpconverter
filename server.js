@@ -9,7 +9,7 @@ var helmet = require('helmet');
 var apiRoutes         = require('./routes/api.js');
 var fccTestingRoutes  = require('./routes/fcctesting.js');
 var runner            = require('./test-runner');
-
+require('dotenv').config();
 var app = express();
 
 app.use('/public', express.static(process.cwd() + '/public'));
