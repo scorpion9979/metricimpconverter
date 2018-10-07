@@ -45,7 +45,9 @@ function ConvertHandler() {
   };
 
   this.spellOutUnit = function(unit) {
-    var result;
+    var validUnits = ['gal','l','mi','km','lbs','kg'];
+    var spellOuts = ['gallon','liter','mile','kilometer','pound','kilogram'];
+    var result = spellOuts[validUnits.indexOf(unit.toLowerCase())];
     
     return result;
   };
