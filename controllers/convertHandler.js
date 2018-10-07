@@ -9,8 +9,20 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
-    var result;
-    
+    var result = /^([^a-zA-Z]*)([a-zA-Z]+)$/.exec(input)[1];
+    // take care of invalid math expressions
+    try {
+      eval(result);
+    } catch(e) {
+      result = null;
+    }
+    // take care of cases with no numerical input
+    // and invalid case of double fraction
+    if (/^[a-zA-Z]+$/.test(input)) {
+      result = '1';
+    } else if (result.indexOf('/') != result.lastIndexOf('/')) {
+      result = null;
+    }
     return result;
   };
   
