@@ -21,9 +21,7 @@
     ],
     "linterOptions": {
         "exclude": [
-            "/controllers/",
             "/routes/",
-            "/tests/",
             "/assertion-analyzer.js",
             "/test-runner.js",
             "tslint.json"
@@ -61,7 +59,7 @@
         "no-duplicate-super": true,
         "no-duplicate-variable": true,
         "no-empty": true,
-        "no-eval": true,
+        "no-eval": false,
         "no-reference": true,
         "no-shadowed-variable": true,
         "no-string-literal": true,
