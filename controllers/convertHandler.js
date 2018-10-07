@@ -27,8 +27,12 @@ function ConvertHandler() {
   };
   
   this.getUnit = function(input) {
-    var result;
-    
+    var validUnits = ['gal','l','mi','km','lbs','kg'];
+    var result = /^([^a-zA-Z]*)([a-zA-Z]+)$/.exec(input)[2];
+    // takes care of invalid units
+    if (validUnits.indexOf(result.toLowerCase()) == -1) {
+      result = null;
+    }
     return result;
   };
   
