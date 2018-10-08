@@ -33,13 +33,13 @@ module.exports = function(app) {
              returnUnit: returnUnit,
             });
       } else if (!initNum && initUnit) {
-        res.status(404)
+        res.status(400)
            .send('invalid number');
       } else if (initNum && !initUnit) {
-        res.status(404)
+        res.status(400)
            .send('invalid unit');
       } else {
-        res.status(404)
+        res.status(400)
            .send('invalid number and unit');
       }
     });
